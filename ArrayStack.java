@@ -23,10 +23,9 @@ public final class ArrayStack<T> implements StackInterface<T> {
 	
 	/** Adds a new entry to the top of this stack.
 	 @param newEntry  An object to be added to the stack. */
-	public void push(T newEntry) throws EmptyStackException {
+	public void push(T newEntry) {
 		// Check if there's room to add
 		if(checkCapacity()) {
-			// Push
 			top++;
 			stack[top] = newEntry;
 		}

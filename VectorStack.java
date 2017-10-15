@@ -2,7 +2,7 @@ import java.util.EmptyStackException;
 import java.util.Vector;
 
 /**
- * A class implementing a Stack using fixed vector
+ * A class implementing a Stack using vector
  */
 
 public final class VectorStack<T> implements StackInterface<T> {
@@ -19,7 +19,7 @@ public final class VectorStack<T> implements StackInterface<T> {
 	
 	/** Adds a new entry to the top of this stack.
 	 @param newEntry  An object to be added to the stack. */
-	public void push(T newEntry) throws EmptyStackException {
+	public void push(T newEntry) {
 		stack.add(newEntry);
 	}
 	

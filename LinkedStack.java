@@ -1,8 +1,7 @@
-import javax.xml.soap.Node;
 import java.util.EmptyStackException;
 
 /**
- * A class implementing a Stack using fixed linked node
+ * A class implementing a Stack using linked node
  */
 
 public final class LinkedStack<T> implements StackInterface<T> {
@@ -18,7 +17,7 @@ public final class LinkedStack<T> implements StackInterface<T> {
 	/** Adds a new entry to the top of this stack.
 	 @param newEntry  An object to be added to the stack. */
 	public void push(T newEntry) throws EmptyStackException {
-		stack.add(newEntry);
+		topNode = new Node(newEntry, topNode);
 	}
 	
 	/** Removes and returns this stack's top entry.
@@ -29,10 +28,8 @@ public final class LinkedStack<T> implements StackInterface<T> {
 		if(isEmpty())
 			throw emptyStackException;
 		
-		// Pop
-		T topItem = stack.lastElement();
-		
-		stack.remove(stack.size() - 1);
+		T topItem = peek(); // Get the top item
+		topNode = topNode.getNext();
 		
 		return topItem;
 	}
@@ -44,41 +41,44 @@ public final class LinkedStack<T> implements StackInterface<T> {
 		// Check if empty
 		if(isEmpty())
 			throw emptyStackException;
-		
-		// Peek
-		return stack.lastElement();
+		else return topNode.getData();
 	}
 	
 	/** Detects whether this stack is empty.
 	 @return  True if the stack is empty. */
 	public boolean isEmpty() {
-		return stack.isEmpty();
+		return topNode == null;
 	}
 	
 	/** Removes all entries from this stack. */
 	public void clear() {
-		stack.clear();
+		topNode = null;
 	}
 	
-	// Node
+	/** Node class */
 	private class Node {
 		private T data;
 		private Node next;
+		
+		public Node(T newEntry, Node topNode) {
+			data = newEntry;
+			next = topNode;
+		}
 		
 		public T getData() {
 			return data;
 		}
 		
 		public void setData(T newData) {
-		
+			data = newData;
 		}
 		
 		public Node getNext() {
-		
+			return next;
 		}
 		
-		public void setNext() {
-		
+		public void setNext(Node newNode) {
+			next = newNode;
 		}
 	}
 	
