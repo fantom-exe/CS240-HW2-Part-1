@@ -59,12 +59,6 @@ public final class ArrayStack<T> implements StackInterface<T> {
 		return stack[top];
 	}
 	
-	/** Detects whether this stack is empty.
-	 @return  True if the stack is empty. */
-	public boolean isEmpty() {
-		return (top < 0);
-	}
-	
 	/** Removes all entries from this stack. */
 	public void clear() {
 		while (top > -1) {
@@ -74,6 +68,12 @@ public final class ArrayStack<T> implements StackInterface<T> {
 		
 		// Reset top
 		top = -1;
+	}
+	
+	/** Detects whether this stack is empty.
+	 @return  True if the stack is empty. */
+	public boolean isEmpty() {
+		return (top < 0);
 	}
 	
 	/** Check if there is room to add onto stack.
