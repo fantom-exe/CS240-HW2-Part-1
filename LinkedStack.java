@@ -60,12 +60,12 @@ public final class LinkedStack<T> implements StackInterface<T> {
 		private T data;
 		private Node next;
 		
-		public Node(T newEntry, Node topNode) {
+		Node(T newEntry, Node topNode) {
 			data = newEntry;
 			next = topNode;
 		}
 		
-		public T getData() {
+		T getData() {
 			return data;
 		}
 		
@@ -73,7 +73,7 @@ public final class LinkedStack<T> implements StackInterface<T> {
 			data = newData;
 		}
 		
-		public Node getNext() {
+		Node getNext() {
 			return next;
 		}
 		
