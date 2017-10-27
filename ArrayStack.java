@@ -79,7 +79,7 @@ public final class ArrayStack<T> implements StackInterface<T> {
 	/** Check if there is room to add onto stack.
 	 @return  True if the stack has room to add. */
 	private boolean checkCapacity() {
-		return (MAX_CAPACITY - top > 0);
+		return (MAX_CAPACITY - top - 1 > 0);
 	}
 	
 }
